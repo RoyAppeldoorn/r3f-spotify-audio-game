@@ -1,0 +1,16 @@
+:root {
+  --colors-background: #333;
+  --colors-text-default: #eee;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --colors-background: #fff;
+    --colors-text-default: #333;
+  }
+}
+
+.light-theme {
+  --colors-background: #fff;
+  --colors-text-default: #333;
+}
