@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { useCallback, useState } from "react";
 import { useSpotifyWebSDK } from "../hooks/useSpotifyWebSDK";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [paused, setPaused] = useState<boolean>();
@@ -24,46 +25,44 @@ const Home: NextPage = () => {
     onError,
   });
 
-  return (
-    <div>
-      {player && isReady && (
-        <>
-          <button
-            onClick={async () => {
-              await player?.previousTrack();
-            }}
-          >
-            &lt;&lt;
-          </button>
-          <button
-            onClick={async () => {
-              await player?.togglePlay();
-            }}
-          >
-            {paused ? "PLAY" : "PAUSE"}
-          </button>
-          <button
-            onClick={async () => {
-              await player?.nextTrack();
-            }}
-          >
-            &gt;&gt;
-          </button>
+  if (!currentTrack) {
+    return <div>Start a song from your spotify client</div>;
+  }
 
-          {currentTrack && (
-            <>
-              <Image
-                src={currentTrack.album.images[0].url}
-                alt=""
-                width={250}
-                height={250}
-              />
-              <div>{currentTrack.name}</div>
-              <div>{currentTrack.artists[0].name}</div>
-            </>
-          )}
-        </>
-      )}
+  return (
+    <div className={styles.container}>
+      <Image
+        src={currentTrack.album.images[0].url}
+        alt=""
+        width={250}
+        height={250}
+      />
+      <div>
+        <button
+          onClick={async () => {
+            await player?.previousTrack();
+          }}
+        >
+          &lt;&lt;
+        </button>
+        <button
+          onClick={async () => {
+            await player?.togglePlay();
+          }}
+        >
+          {paused ? "PLAY" : "PAUSE"}
+        </button>
+        <button
+          onClick={async () => {
+            await player?.nextTrack();
+          }}
+        >
+          &gt;&gt;
+        </button>
+      </div>
+
+      <div>{currentTrack.name}</div>
+      <div>{currentTrack.artists[0].name}</div>
     </div>
   );
 };
