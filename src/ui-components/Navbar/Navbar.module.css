@@ -1,0 +1,24 @@
+.menu {
+  width: 100%;
+  padding: 20px;
+  background-color: var(--colors-background);
+  box-shadow: 0 2px 2px -2px var(--colors-shadow);
+}
+
+.menuContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+.menuItems {
+  display: flex;
+  align-items: center;
+}
+
+.menuItems > * {
+  margin-left: 20px;
+}
