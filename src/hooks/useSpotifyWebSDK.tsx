@@ -1,4 +1,4 @@
-import { signIn, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useEffect, useRef, useState } from "react";
 
 type SpotifyPlayerProps = {
@@ -35,7 +35,6 @@ export const useSpotifyWebSDK = ({
       spotifyPlayer.current = new window.Spotify.Player({
         name: "Audiosurf",
         getOAuthToken: (cb) => {
-          console.log(authToken);
           cb(authToken);
         },
         volume: 0.5,

@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { useCallback, useState } from "react";
 import { useSpotifyWebSDK } from "../hooks/useSpotifyWebSDK";
-import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [paused, setPaused] = useState<boolean>();
