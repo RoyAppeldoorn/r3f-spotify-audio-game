@@ -1,16 +1,22 @@
 :root {
   --colors-background: #333;
   --colors-text-default: #eee;
+
+  --colors-shadow: rgba(255, 255, 255, 0.8);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --colors-background: #fff;
     --colors-text-default: #333;
+
+    --colors-shadow: rgba(0, 0, 0, 0.8);
   }
 }
 
 .light-theme {
   --colors-background: #fff;
   --colors-text-default: #333;
+
+  --colors-shadow: rgba(0, 0, 0, 0.8);
 }
