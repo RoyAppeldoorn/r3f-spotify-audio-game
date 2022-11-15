@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import { Session } from "next-auth";
 import { ThemeProvider } from "../contexts/ThemeContext";
+import { Layout } from "../layout/layout";
 
 function MyApp({
   Component,
@@ -14,7 +15,9 @@ function MyApp({
   return (
     <SessionProvider session={pageProps.session}>
       <ThemeProvider>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </SessionProvider>
   );
