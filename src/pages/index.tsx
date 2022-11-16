@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import { useCallback, useState } from "react";
-import { useSpotifyWebSDK } from "../hooks/useSpotifyWebSDK";
+import { useSpotifyPlayer } from "../hooks/useSpotifyPlayer";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
     console.log(e.message);
   }, []);
 
-  const { player, isReady } = useSpotifyWebSDK({
+  const { player } = useSpotifyPlayer({
     onPlayerStateChanged,
     onError,
   });
@@ -37,6 +37,9 @@ const Home: NextPage = () => {
         width={250}
         height={250}
       />
+      <div>{currentTrack.name}</div>
+      <div>{currentTrack.artists[0].name}</div>
+
       <div>
         <button
           onClick={async () => {
@@ -60,9 +63,6 @@ const Home: NextPage = () => {
           &gt;&gt;
         </button>
       </div>
-
-      <div>{currentTrack.name}</div>
-      <div>{currentTrack.artists[0].name}</div>
     </div>
   );
 };
