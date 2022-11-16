@@ -12,6 +12,7 @@ body {
   color: var(--colors-text-default);
   width: 100%;
   height: 100%;
+  font: caption;
 }
 
 main {
