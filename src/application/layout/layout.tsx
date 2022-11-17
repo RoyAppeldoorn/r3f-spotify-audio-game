@@ -2,7 +2,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import { PropsWithChildren } from "react";
 import { useThemeContext } from "../contexts/ThemeContext";
-import { Navbar, ThemeToggle, SignInButton } from "../ui-components";
+import { Navbar, ThemeToggle, SignInButton } from "../../ui-components";
 
 export const Layout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const { status } = useSession();

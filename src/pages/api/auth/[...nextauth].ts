@@ -12,6 +12,7 @@ const scopes = [
 ].join(",");
 
 const refreshAccessToken = async (token: JWT) => {
+  console.log("here");
   try {
     const url =
       "https://accounts.spotify.com/api/token?" +
@@ -22,12 +23,16 @@ const refreshAccessToken = async (token: JWT) => {
         refresh_token: token.refreshToken as string,
       });
 
+    console.log("here2");
+
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
       method: "POST",
     });
+
+    console.log("here3");
 
     const refreshedToken = await response.json();
 
@@ -76,6 +81,7 @@ export const authOptions: NextAuthOptions = {
       if (Date.now() < (token.accessTokenExpires as number)) {
         return token;
       }
+      console.log("token expired");
       // Access token expired
       return refreshAccessToken(token);
     },

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import { useCallback, useState } from "react";
-import { useSpotifyPlayer } from "../hooks/useSpotifyPlayer";
+import { useSpotifyPlayer } from "../application/hooks/useSpotifyPlayer";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {

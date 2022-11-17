@@ -1,6 +1,6 @@
 import "../src/ui-components/theme.css";
-import "../src/styles/globals.css";
-import { ThemeProvider } from "../src/contexts/ThemeContext";
+import "../src/globals.css";
+import { ThemeProvider } from "../src/application/contexts/ThemeContext";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
