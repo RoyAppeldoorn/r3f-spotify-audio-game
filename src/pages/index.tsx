@@ -33,6 +33,7 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Image
         src={currentTrack.album.images[0].url}
+        priority={true}
         alt=""
         width={250}
         height={250}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const spotifySDK = new Promise<void>((resolve) => {
+  if (typeof window === "undefined") return;
   if (window.Spotify) {
     resolve();
     return;

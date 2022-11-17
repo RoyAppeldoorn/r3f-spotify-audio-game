@@ -38,18 +38,16 @@ export const useSpotifyPlayer = ({
 
     // automatically transfer Spotify playback to this app (device)
     const onReady = (data: Spotify.WebPlaybackInstance) => {
-      setTimeout(() => {
-        fetch("https://api.spotify.com/v1/me/player", {
-          method: "PUT",
-          body: JSON.stringify({
-            device_ids: [data.device_id],
-            play: false,
-          }),
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        }).catch((e) => console.error(e));
-      }, 100);
+      fetch("https://api.spotify.com/v1/me/player", {
+        method: "PUT",
+        body: JSON.stringify({
+          device_ids: [data.device_id],
+          play: false,
+        }),
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      }).catch((e) => console.error(e));
     };
 
     spotifyPlayer.addListener("player_state_changed", onPlayerStateChanged);
